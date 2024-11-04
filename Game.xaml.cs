@@ -271,12 +271,14 @@ namespace InventoryManagement
 
         private void btn_Combine_Click(object sender, RoutedEventArgs e)
         {
+            // Ensure exactly two items are selected
             if (selectedSlots.Count != 2)
             {
                 ShowMessageDialog("Please select exactly two items to combine.");
                 return;
             }
 
+            // Extract selected items
             List<Item> selectedItems = new List<Item>();
             foreach (var slot in selectedSlots)
             {
@@ -287,51 +289,71 @@ namespace InventoryManagement
                 }
             }
 
-            
+            // Check for matching recipes
             foreach (var item in _gameItems.Items)
             {
                 if (item.Recipes == null || !item.Recipes.Any())
-                    continue; 
+                    continue; // Skip items with no recipes
 
+                // Verify if the selected items match the recipe requirements
                 bool recipeMatch = true;
-                var recipeIngredients = item.Recipes.GroupBy(r => r.Name)
-                                                     .ToDictionary(g => g.Key, g => g.Count());
+                Dictionary<string, int> requiredIngredients = new Dictionary<string, int>();
 
-           
-                foreach (var recipeIngredient in recipeIngredients)
+                // Aggregate required ingredients from the recipes
+                foreach (var recipe in item.Recipes)
                 {
-                    int selectedCount = selectedItems.Count(i => i.Name == recipeIngredient.Key);
-
-                    if (selectedCount < recipeIngredient.Value)
+                    foreach (var ingredient in recipe.Ingredients)
                     {
-                        recipeMatch = false;
-                        break; 
+                        if (requiredIngredients.ContainsKey(ingredient.Ingredient.Name))
+                        {
+                            requiredIngredients[ingredient.Ingredient.Name] += ingredient.Quantity;
+                        }
+                        else
+                        {
+                            requiredIngredients[ingredient.Ingredient.Name] = ingredient.Quantity;
+                        }
                     }
                 }
 
-              
+                // Check if we have enough of the selected ingredients in the inventory
+                foreach (var requiredIngredient in requiredIngredients)
+                {
+                    int selectedCount = selectedItems.Count(i => i.Name == requiredIngredient.Key);
+                    if (selectedCount < requiredIngredient.Value)
+                    {
+                        recipeMatch = false;
+                        break; // Not enough ingredients
+                    }
+                }
+
+                // If the recipe matches, craft the item
                 if (recipeMatch)
                 {
-                    CraftItem(item, recipeIngredients, selectedItems);
+                    CraftItem(item, requiredIngredients, selectedItems);
                     UpdateInventoryGrid();
-                    selectedSlots.Clear();
-                    return; 
+                    selectedSlots.Clear(); // Clear selection after crafting
+                    ShowMessageDialog($"Successfully combined items into {item.Name}.");
+                    return; // Exit after successful crafting
                 }
             }
 
+            // No valid combination found
             ShowMessageDialog("The selected items cannot be combined into a valid recipe.");
         }
 
 
+
         private void CraftItem(Item craftedItem, Dictionary<string, int> recipeIngredients, List<Item> selectedItems)
         {
-            
-            foreach (var recipeIngredient in recipeIngredients)
+            // Deduct inventory quantities based on recipe ingredients
+            foreach (var ingredient in recipeIngredients)
             {
-                int quantityNeeded = recipeIngredient.Value;
+                int quantityNeeded = ingredient.Value;
+
+                // Loop through the selected items to deduct the required amount
                 foreach (var selectedItem in selectedItems.ToList())
                 {
-                    if (selectedItem.Name == recipeIngredient.Key && quantityNeeded > 0)
+                    if (selectedItem.Name == ingredient.Key && quantityNeeded > 0)
                     {
                         var inventoryItem = _inventory.Items.FirstOrDefault(i => i.Item.Name == selectedItem.Name);
                         if (inventoryItem != null)
@@ -342,20 +364,22 @@ namespace InventoryManagement
 
                             if (quantityToRemove > 0)
                             {
-                                selectedItems.Remove(selectedItem);
+                                selectedItems.Remove(selectedItem); // Remove if the item was used up
                             }
 
                             if (quantityNeeded <= 0)
                             {
-                                break;
+                                break; // Enough ingredients have been deducted
                             }
                         }
                     }
                 }
             }
 
+            // Add the crafted item to inventory
             _inventory.AddItem(craftedItem, 1);
         }
+
 
         private object GetSlotIndex(RelativePanel slot)
         {

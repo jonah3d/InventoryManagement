@@ -434,8 +434,18 @@
 
             </Grid>
 
-            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="116" Margin="0,0,114,0" >
+            
 
+            <StackPanel Orientation="Vertical" 
+                        Grid.Row="1" Grid.Column="7"  Grid.ColumnSpan="2" 
+                        Height="200" Margin="0,0,114,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+
+                <TextBox 
+                    x:Name="txtbx_newItem"
+                    Width="200"
+                    FontSize="30"
+                    Margin="0,0,0,10" HorizontalAlignment="Center"
+                    />
 
                 <ComboBox 
                     x:Name="cmbx_itemInv"
@@ -460,7 +470,18 @@
                     <ComboBoxItem Content="4" />
                 </ComboBox>
 
+                
+
             </StackPanel>
+
+            <TextBlock 
+                x:Name="txtb_invQt" Grid.Row="0" Grid.Column="7"
+                Text="New Item"
+                FontSize="15"
+                Foreground="#FF755430"
+                FontFamily="Segoe UI Black"   VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                />
 
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
