@@ -1,0 +1,495 @@
+﻿<Page
+    x:Class="InventoryManagement.Game"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InventoryManagement"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+  
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/gamebg.jpg" Stretch="UniformToFill" Opacity="0.85"/>
+        </Grid.Background>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="3*"/>
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Button x:Name="btn_backbtn"
+        Grid.Row="0"
+        Grid.Column="0"
+        CornerRadius="20"
+        Background="Transparent"
+        Click="btn_backbtn_Click"
+        >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <FontIcon x:Name="ficon_backbtn"
+                      Glyph="&#xE0A6;"
+                      FontFamily="Segoe MDL2 Assets"
+                      FontSize="30"
+                      Foreground="White"
+                      VerticalAlignment="Center"
+                      HorizontalAlignment="Center"/>
+                    <TextBlock Text="Back"
+                       VerticalAlignment="Center"
+                       Foreground="White"
+                       Margin="5,0,0,0"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+
+
+        <Grid 
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                x:Name="img_itemImg"
+                Grid.Row="0"
+               Source="{x:Bind SelectedImageSource, Mode=OneWay}"
+                   
+                />
+
+            <Grid Grid.Row="0" Grid.Column="1" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <TextBlock
+                    x:Name="txb_itemName"
+                    Grid.Row="0"
+                    Text="Item Name"
+                    FontSize="30"
+                    Foreground="#FF755430"
+                    FontFamily="Segoe UI Black"  VerticalAlignment="Center"
+                    />
+
+                <TextBlock
+                    x:Name="txb_itemDesc"
+                    Grid.Row="1"
+                    Text="Item Description"
+                    FontSize="30"
+                    Foreground="#FF755430"
+                    FontFamily="Segoe UI Black"   VerticalAlignment="Center"
+                    />
+
+                <TextBlock 
+                    x:Name="txb_itemImg"
+                    Grid.Row="2"
+                    Text="Image"
+                    FontSize="30"
+                    Foreground="#FF755430"
+                   FontFamily="Segoe UI Black"   VerticalAlignment="Center"
+                    />
+
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="2">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <TextBox 
+                    Grid.Row="0"
+                    x:Name="txtbx_itemName" VerticalAlignment="Center"
+                    />
+
+                <TextBox 
+                    Grid.Row="1"
+                    Name="txtbx_itemDesc" VerticalAlignment="Center"
+                    />
+
+                <TextBox 
+                    Grid.Row="2"
+                    Name="txtbx_itemImg" VerticalAlignment="Center"
+                    />
+
+            </Grid>
+
+            <Grid Grid.Row="0" Grid.Column="3">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*" />
+                    <RowDefinition Height="1*" />
+                </Grid.RowDefinitions>
+
+                <Button 
+                    Grid.Row="0"
+                    x:Name="btn_createitm"
+                    Content="Create"
+                    Width="110"
+                    FontSize="30" HorizontalAlignment="Left" Margin="35,0,0,0"
+                    Click="btn_createitm_Click"
+                  CornerRadius="10" BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304"
+                    >
+                    
+                </Button>
+
+                <Button Grid.Row="1"
+                        Name="btn_clear"
+                        Content="Clear"
+                        FontSize="30" Margin="35,0,0,0"
+                        Click="btn_clear_Click"
+                       CornerRadius="10"
+                        Width="110"
+                        BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304"
+                        />
+
+            </Grid>
+
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                x:Name="txtb_itemslabel"
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Items"
+                FontFamily="Segoe UI Black"  
+                Foreground="#FF755430"
+                FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"
+                />
+
+            <ListView
+                Grid.Column="0"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                x:Name="lv_itemslist" DisplayMemberPath="Name"
+                Foreground="Black" BorderBrush="#FFC99E60" CornerRadius="10"
+                FontWeight="Bold"
+                SelectionChanged="lv_itemslist_SelectionChanged" BorderThickness="2,2,2,2"
+                />
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+                <Button 
+                     x:Name="btn_itemDelete"
+                        Content="Delete"
+                        Width="110"
+                        FontSize="30" HorizontalAlignment="Center" Margin="0,8,0,0"
+                        Click="btn_itemDelete_Click"
+                    CornerRadius="10"
+                    BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304"
+                          />
+
+            </StackPanel>
+
+            <TextBlock 
+                x:Name="txtb_recipeslabel"
+                Grid.Row="0"
+                Grid.Column="4"
+                Text="Recipes"
+                Foreground="#FF755430"
+                FontFamily="Segoe UI Black"  
+                FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"
+                />
+
+            <ListView
+                Grid.Column="4"
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                x:Name="lv_recipeslist" DisplayMemberPath="Name"
+                 CornerRadius="10"
+                BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304" BorderThickness="2,2,2,2"
+                />
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+
+                <TextBox 
+                    x:Name="txtbx_recipeName"
+                   Width="110"
+                    FontSize="30"
+                    Margin="0,0,0,8" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    />
+
+                <ComboBox 
+                    x:Name="cmbx_recipeItemsQt"
+                    Height="50"
+                    Width="100"
+                    FontSize="30"
+                    Margin="0,0,0,8" HorizontalAlignment="Center"
+                    DisplayMemberPath="Name">
+
+                    <ComboBoxItem Content="1" />
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                    <ComboBoxItem Content="6" />
+                    <ComboBoxItem Content="7" />
+                    <ComboBoxItem Content="8" />
+                    <ComboBoxItem Content="9" />
+
+                </ComboBox>
+                   
+                   
+
+                <Button 
+                     x:Name="btn_recipeAdd"
+                        Content="Add"
+                        Width="110"
+                    CornerRadius="10"
+                        FontSize="30" HorizontalAlignment="Center" Margin="0,8,0,0"
+                    Click="btn_recipeAdd_Click"
+                    BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304"
+                          />
+            </StackPanel>
+
+
+        </Grid>
+
+
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="114*"/>
+                <ColumnDefinition Width="114*"/>
+                <ColumnDefinition Width="114*"/>
+                <ColumnDefinition Width="113*"/>
+                <ColumnDefinition Width="114*"/>
+                <ColumnDefinition Width="113*"/>
+                <ColumnDefinition Width="28*"/>
+                <ColumnDefinition Width="199*"/>
+                <ColumnDefinition Width="114*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="33*"/>
+                <RowDefinition Height="208*"/>
+
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="6" Margin="0,2,4,0" x:Name="InventoryGrid">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+
+
+                <RelativePanel Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth00"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth00"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                       RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth01"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth01"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth02"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth02"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth03"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth03"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth04"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth04"
+                               HorizontalAlignment="Center" VerticalAlignment="Center" 
+                               RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth05"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth05"
+                HorizontalAlignment="Center" VerticalAlignment="Center" 
+                RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth06"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth06"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth07"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth07"
+                    HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped"> 
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth10"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth10"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth11"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth11"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth12"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth12"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth13"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth13"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth14"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth14"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth15"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth15"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth16"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth16"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+                <RelativePanel Grid.Row="1" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Center"  Tapped="RelativePanel_Tapped">
+                    <Image Source="/Assets/StoreLogo.png" x:Name="img_invSlth17"/>
+                    <TextBlock Text="0" FontSize="30" Foreground="Black"  FontWeight="Bold" x:Name="txtb_invSlth17"
+                         HorizontalAlignment="Center" VerticalAlignment="Center" 
+                        RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignRightWithPanel="True"  />
+                </RelativePanel>
+
+            </Grid>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" Grid.ColumnSpan="2" Height="116" Margin="0,0,114,0" >
+
+
+                <ComboBox 
+                    x:Name="cmbx_itemInv"
+                    Height="50"
+                    Width="200"
+                    FontSize="30"
+                    Margin="0,0,0,8" HorizontalAlignment="Center"
+                    DisplayMemberPath="Name"
+                    ItemsSource="{x:Bind _gameItems.Items}"
+                    />
+
+                <ComboBox 
+                    x:Name="cmbx_itemInvQt"
+                    Height="50"
+                    FontSize="30"
+                    Width="200"
+                    Margin="0,8,0,0" HorizontalAlignment="Center"
+                    >
+                    <ComboBoxItem Content="1" />
+                    <ComboBoxItem Content="2" />
+                    <ComboBoxItem Content="3" />
+                    <ComboBoxItem Content="4" />
+                </ComboBox>
+
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="8" HorizontalAlignment="Center" VerticalAlignment="Center" >
+
+                <Button 
+                    CornerRadius="10"
+                 x:Name="btn_addToInv"
+                 Grid.Row="1"
+                 Grid.Column="8"
+                 Content="Add" Width="100"
+                 FontSize="30" HorizontalAlignment="Center" Margin="0,0,0,10"
+                 Click="btn_addToInv_Click"
+                    BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304"
+                 />
+
+                <Button CornerRadius="10"
+                 x:Name="btn_Combine"
+                 Grid.Row="1"
+                 Grid.Column="8"
+                 Content="Mix" Width="100"
+                 FontSize="30" HorizontalAlignment="Center" Margin="0,10,0,0" 
+                        BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304"
+                        Click="btn_Combine_Click"
+                 />
+
+            </StackPanel>
+
+        </Grid>
+
+
+    </Grid>
+
+</Page>

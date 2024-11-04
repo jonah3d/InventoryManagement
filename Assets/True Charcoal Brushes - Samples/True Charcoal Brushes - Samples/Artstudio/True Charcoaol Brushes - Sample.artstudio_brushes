@@ -1,0 +1,418 @@
+[
+{
+  "dynamicColor" : {
+    "name" : "Color",
+    "properties" : {
+      "b" : 1,
+      "space" : 0,
+      "c" : 1,
+      "a" : 1
+    },
+    "version" : 1
+  },
+  "stamp" : {
+    "version" : 1,
+    "properties" : {
+      "size" : 10,
+      "filtering" : 3,
+      "squeeze" : 1,
+      "angle" : 0
+    },
+    "image" : {
+      "version" : 1,
+      "properties" : {
+
+      },
+      "image" : {
+        "format" : 1,
+        "height" : 90,
+        "compress" : true,
+        "data" : "BCJNGGBAgm4aAAAfAAEADG8EBgcGBQIlAAwPAgACL4i5FwACBwIAZwMFBwcGAxEADwIAOF8CAwQGBrgAIi+7oYcADV8CAQQGB7gARG8BAQULCgSCAAM\/AQEBGQADAQIAD7gAD2EBAQcPDwYtAA0CAC8BAlwACQ8CAA9uAQEKFhUJKACPAQUMEhQYFAzoAQcf8O4ABAYCAG0BAg8bGgzNAbYCBAoYIigsJBYLBSwADwIAFPABAQMEBAUIBwQDBgwaKScXCUIAcQECAwMEBAMJAcMGDxoqOj5COCkbDgR5APADAQIDAQEDAwQFBgUEBAIBACqo9gAOcADyHgIEBgoMDhIQCggQGSk6NycWCwEAAQMFBwgJCgkIBAEBAg4eMENTVFdNPy8bCVsD8QEBAgQEBAQGCAsLDAwLCQcDcgAgAQICACMAAZoBAAgA8CADBgwRFRgbHxsSDxomNkdFMyESAwIEBwsREhMVFhMLBwYEGC1CVGJkZV1RQSoVDboA8AUBAwQFBQYHDRMWGhsZGBQOCAO+r7QAAU8AIAMEygDzOwECAgQGBwsUISouMjM0LiAZKDdCTUo7KxcEBw0VHygpKy4wLCAWEg4jO05XYGBjXlpQQDIfDQUCAAEEBAQFBg0cLDA2OTk0Kh8SygEwAQEBUgAxBgYEKgPwJggOFiM0QkdLSkpALiM1R05TT0I0HgcMFSExPj9BRUtHNSUfGC5JWVpcXWBgYV5XTTEWCQMAmwDwAQUGEixDS1JWVlFBMBsG8MW4AAAFAfAkCAsQERQSDxEVFxobIiw2QEhLTExLPyofNktRVVBFNyQQGSc0QUtMSk5SUEY5LR8xSFVXXgCQXVxZVDshEgYA6AHgCQ8dM0hPVlpaV0s+JAm0APClAAACAgQIDBIXGyAfHyImKiwtOEJJTVBPTkxMPigbN09UVlFHPSoYJzpHUVdVU1VaWVNOOiYyRVBTVldXWVtbWlhDLRoLAAABAwQNGik7TVJYW15eVEwtCgmoAgIAAgsTFBgYGh0iKS0vMTQ2ODlETVRUVVNQTks\/LCE6UlVVUUc8LR0rQE5VXFlXWVtdW1dEMTZETU5SU1RXWFlbWkUvHAsAAQMIDRgmNUNRVlpeYF9aUjAMuADw\/\/\/\/\/\/\/\/ugEHGSsuLyoiICkyOD9BQUBAQElUWFhYVVNOS0E0LkBTVlZRRjosHCw+S1RZWFhZW15eXEw7PUVIS01PU1VVWFpaQy0aCQEEBxIdKDRAS1ZZXV9gX1lUMQwJqAMFCRIqQkFAOS0mLzdDTU9NSkdFT1ldXFtYVVBLRD07R1RWVlBFOCweKTlFTFRUV1lcXl1eUkVERkdKS09SU1VWWVlCKRcJAQcNGyk1QUtSWVxfYGJfWlMyDQAACRMjMT5KSUdCOTQ6P0dRU1NRTk1UXF9eXlpYUUtHRkZMUlRTTkY6Kx0iLjU6QEhPVlpdXFtTTEtLTE5PUVRSUlJVUzwjEwcEDRYlMz9LVVlfYGFhYl9bVDEN88wQIjxNT1RRTUlFQkRFTlRYWVlWVVheYGFgXlxTS0lPUlFQUVFNRT0tHB0jJigtPEpSWVtZV1VSUU9RUlRTU1JRUFBPNhwQBwUSIC47SVReYWRkZGNiX1tUMQ0AAA8jPlBSU1FPTEtKTE5UWFtbWFJMUFZaXmFfW1ZPT1NWVVRUVVJNRTwvMDQ2Nzg+RUpPVFZYVlJRUFFVV1dWVFJRUU87JhkPDx4tNT9JVl1iZGNiYmBfXFg0DTyVDyI+UFJTUk9PUVNWWVtdXVxYTUNHTlVdYV9dWVZVVlhZWFlYVlNPSkRFRkZGRUE\/QURKVFpXVFFPUVZaWlpWVFFRUEExJRgZKjo+QUtVXWFlYV9eXl5dWzUNAAANHjNDSlJPTU5QVFhdXl5cWlVIOTs9R1ZgX15bWlhXV1hYWFlXVFJQTk1OS0ZBNi0uMTlJVVVTUU9RVltaWldTUVJRRjwwJSQzQkJDS1RdYGRfWllaW11cNg48lQsUHys9TkxKSUxQVlxdXVtZVEIwKyk1S1xeYF1bWFRSU1RUVVRTUVFQTk1HOy8jFhUWIjlMUFNRT1FVWllYVVFQUlJMRTwzMTxFRENKVFtfYltVVFRXWl42DwAACg8RGjNLSEdFRUlRWVtcW1lSPyshFyVBV11jX1xXUU5NTU9SUlFRUlJQTUIxHxECAAEQKkNKUVFPUFNXVlZTUE9SVE9MRT46QUZEQkhRWFteVk5NUFRZXjYNPJUMERYhNEdFQTs2NkRRVllaWldJOygVHTdOWmRfWVJJREVIS1BSVFNWV1JNQCoVDAEBAg0gNEJQUE1MTExOUFBQUVNVUlFKQD0\/QT45P0lQUlZPSktQVVhcNQ0AAAwUGyU1RUE7MiUhNUlQVllaWlFJLhEVLkVUZV9XTUE6PUBGTVJVV1laVU09IwwGAQIECxcmOk9PTElFQkZKTk9TVFVVVU5EPj48NjI3QEhKTUhFSU5UWFs1DTyVHSUtND9JRD42Kyg4R01WW11dVEs0HB80SFNgWU5FOjQ5QEVLUFNXW1xYVEYwGxEGBg0VIC0+UFFNSEM\/RUxQVVZUUlFQS0VAPjw5NztDR0pNSUlLUVNUVTELAAAuOD9ESU5HQTo0MjpDTVVaXl1VTDspKztKVFtTRTwzLjZARElNUldbX11aUD8uHQkNFiArN0RRUU9KQjtFT1VYWFNPTEtJR0Q\/Ojw\/QkVIS05NTE5TVFBNLQs8lTVCSU5PUUtFQD48QUdMVFleX1dOQzc4RE5TWFBGPTYxOD9DR01SWFtgX15WSz4qFxsiLDU\/SlVVU05IRExUWFpaVVFNS0dEQEE\/REhLTU5RUlJSUlRQSUImCQAANURMUlRUTkpISUpLTU9RVl1fWFJLREVNUlVWUk5JQj08PEJITVNaXWFgX1pVSz0tLTI2P0hQWVtbWFdWWFlaXFtZV1NORj07Q0pQVFdXWFlcW1lWU0s\/NB4GPJU0RFBXV1dUUE9TU1JRTk1SW19aVlJPT1JVVVZVVlRNSEM+REpQVVldYmFgXlxWSj47Oz9HTlZcXl9gYWJgXl1cXF1dV1JIOjdGVFlfYV9fYGFgX1lRRzYlFgYAAC0\/UFxbW1lXV1ZVT0tKSU9YX1tZVU9OUFJVWVxdW1dTT0lOU1laXV9iYmJhX1xPRD44O0hRV1xeX2BhYmFgYV9eX2BaVEtDQ1FeYGJiYWBhY2FgWlNHMh4RBDyVJTpQX2BgX19dWlRNRkVESldfXl1WT01NUFdeYmVlYl5ZVFleX19fYWNkYmJhX1RKPzY4SFNYW15fYGFiYmJiYGBjZF1WUExNWmdnZ2RiYWNjY2FbU0YtFAwCAAAwRFVgYWFhYV9bV01ERUZNV15eXlhRUFFVW2FjZ2ZkYlxYXWFiY2FhY2JjY2FeUUM8NTpJVFhaXFxeX2BgYWJiYmNiXVdUVVZhZ2dnZQ4A8EViXlhQQy4WDQI8lT9PWmFiY2RkYV5YTkFGS1FZXl5eWFJSVFldZGVnZ2VkX1tgZWVmZGJgYGFiYV5MOTc2PktVWFlbWlpbW11fYGFjY2JcV1hbYGMtAPARYWFgYV5cVExBLhoOAwAARlddYmRjZWVjYFtRSExRVVshBVBWVlhbX1wA8BJmZWFeY2doZ2ZjX19gYF9aSzo8P0dQWFhZWVpZV1VYW17UAPEWXVhcYGRlZmZlYmBfX19bWFNNQSwWDAM8lUdYXWJkZGRmZWJfWg4H8AdfX19dW1tbXF5fYWVmZ2ZkYGRoaGhmNwCgXFlVTURJT1NWWrYAcFlSTFBUWV8qAfAWWV1hZGRjZGNhYF9eXFhUUlFHKg0IAQAASFlfYmJjZGZmZWNhX50AwGBhYGBgX15dW1ldYRYB8ANjZWhoZ2VjYF9eWlVPTU1SWl17APAaW1xZT0VHSlNdY2FiXlteYmRkYWFhYF5eW1pWUVFUSSkFAwA8lUlYXmJxAQA+AAFcAAAkAPEAYF5aV1NMU1xhZGZjYmRl7QDwH15dWFBJSkpRWFtbWVpaW15ZTEE8OENWYGBiX1xfYmViYV9cW1taXFtZV1VSRiV\/CpAASVheY2FgYWS2ACFeX1oC8X5jYWBdWFNJP0lVXGFmZGNjY2JeXF1dXVtVSkJGSVBWWFdXWFlcX1tLPTAkNU9eYGJgXWBiZGJhXVlXV1haXVxcV1BCIgQCADyVQVFbYWBfYWJhXl1dXV1dX2FjZWRjX1pUTUI0OkNNWWJiYmBdWVZUVllXU0s\/Nz9FS09QTUxSVltfWEQvJh0xS1peYWDoATBdW1h0APARXl5dWFJGKxAJAgAAN0lXYV9eXl9dXFpbWltbXmNlZ2gWBvEjSDsqLC48UGBjZF5XUU1KT1VQST80KzhBRUZHQ0JMVVpeVToiHhktRlddYWFfXl1cXFpbAPACXV9eXFlUSzcgEgQ8lS5CUl4BAPAzXVpZWVhaW1xhY2ZoZWBaUkg2IyIiMUtfYGFZTklGRUlOSD43Lys4REVEQ0FCTFZbX1M3HhsYLERUWmBhX15cWllYXAAgW11oAPAAWVI\/LBkFAAAoOk1ZWl1e1ADwKllYWVpbXmBiZWRiXlVKMxwcHi5KXl1bUUZDQ0RGST8zLzM4QktKRkVHSlRdYGBVOSIgHy9CUVheX1cCEFoRCAAZBfAIXl5fYFlHMh0GPJUgM0dUWFxfYmBeW1kTA\/AyW11fYmRlYFhMMxgYHS5KXlpVTEE\/QUVERDksKzhDS1NOSElNU1xlZWJXPigmJjNDT1ZcXmBgYF5bWFhYWFdXWlydAPACX0w5IAgAABMmP1FXW19hYFylCvEtWl1dXl9fYWRhWlA2HCEpOU9gXFdRTElLTEpGPzY4RE9TWFZSU1ZaX2VmZV1MPjcxO0dSWF1fYGFgX1xZAQAAmwDwHGNmYVNDKAo8lQYbOU5UW19hX1pXV1dZW15fX11dX2JhXlM7ICk1RFViXVi2CfALU09KRUBEUFlaXVxbXV5fYmVmZ2RcUkc8Qk2qBlBhYWJgXawDMFtbXGkC8ABmY1lOLgwAAAQaOlBTV1qOAVBZWlxeX98A8ApfY2JfWUcyNjxJV2FeWVhXV1dXUUtJRktV1QAAvAPBYWJlaGdiXlRKTFNYsgRwYWFfXVxcXmwB8AdjZGRmYlpRLww8lQQcPlRSUVVaXFtdEAHwA2BhYV9bX2JkYV5SRkRETFhhXZcEgVlZUktLTFFYRgDQYWFgYGFjaGtpZ19VV1sAABYAQGNgX194AfEFYGFjZWVkYlpTLwwAAAkgP1JRT1SlBAA6APAOY2JeWl5iZGJiWlNPTFFaYFxbWlpYVVNMRktPVly2AxBiFQTAXmFobG1sZ2FdXFtc7QABuAAhWlsfAUJkZWRhuABQESQ8TVEqAgCMBQHNBEBcWFxiRAsgWlhqBdBdWlpYU0xFQTxFUVletQDwDmFhY2NgXGBnbG1wbGdjXltYVlpdX19dWVZTTlFYbwHwEGRkZGBZUDALAAAXJzpJUFhbYGFgYmRmZmZkYl9aVVzYAFBjYWBeXdkE0FlXUEM4NjRDU1xgY2L+BfAPY2VgW19ma29xb2xmX1pVUlZcXF5cVk9KRElTWlxg1wawX1dOLQw8lRQmPU0oAjFiYWFpBcBcVVZVXGJkZGNjYWINBPEeXFpaV09BNjg7R1RcYGRkYmFfX2FiXlhdYmhsbmpnYVpVUlBWW1xeWlJKSERJ7gxgY2JhXE09YA6QEiY+UFhfYWRjxQWwZWZeVE5PVFpjZWP\/BABGAfEgXVtZV0w8MjxDTldeYWRkZWFeXV9gWlZZX2Voa2dhW1RPTk9VWlxdW05ERERKUVcSCLBgWEMsGgc8lRcqP1wA8QFiY2FhY2RhYFdKQktSWl9jtAEgYmBaAvEDWFVLQDY7QUtVXGBjY2RfW1pZtwwwXGBkiwXwAk9PT1RYW15aUUhHSU1RVVZXFQfxC1VEMBwGAAAfL0BPV15gYWFgX2BgXVhOQDlFqAMAhQYBuAChXVZRSkA6Oz1IUzoB8DFeWVVSTkdCREpQVlpZV1ZTUVBPU1VZXVxUTE5NUFFSUVBUWVpZVEc5IQg8lSk4RVBVWl1eXVxaWllVT0c7N0RQiQAAdQXxLFlZWltbWlRMRT03MzA8S1ZbYWFgXFhTT0pCPT0\/REtRVFRVUk9LR0xRV1xdVlFPTk1MTUlIUFZVVlFI0A\/wLzdFTVJUVFRWVFJRUE1JREE\/QUZMUFJXXF5aV1FLS1BUVldORTsxKSIcKj1LVl9gYV1ZVE9KRD86Nzg\/Rk9W1gXyOzdBTVVbXllVT0pFQkBCREtSU1BNRT0jCTyVRFBTVVFOTU1MSkhFQj86PEJISUpLTVJYXVhUST49R05QUkk9MScdEgoZLT9PXV9hRQDyM0E5Ly42PktYVE1DNCg3R1JaX1tXT0Y+ODY6P0dOTkpFQDohCAAASFNUVE9KS0xLSEU\/Ozo6PEBESk9RUlRXWFNOR8QA0EU0JhsRDAYPHS5CVFklA\/D\/\/wVRTUdCOjQ0P0hSXFdLPSkaL0VRWV1bV1BIPTAqND1DSUU9NC4nFgU8lU5WVVJLRUdLSkhDOjI1Ojw+QUtVVVZWVVNOSkdBQkZLT1JBLRwPBwQBBw0eN05VW1tZV1RRSUE9OTxHUltjWkk2HwonQ09YW1lXUUk7JyEtPEFEPS4jGxMLAwAAT1lWUkxIS1FRTkk\/Nzo\/Pz0\/SFJTVlVTUU5NS0lISktOUkQ0IxEDAgAHECA3S1JYWFZVVVNMRUNARE1XXGNcTz0jDCM5RlNbWVlUUEQ0LTVAQkU6KBoTDQgBPJVRWlVSTktSWVlWUUc9QkNDPDtETlBTUlFPUVNUVFNPTVBSSkAvFgEAAAoYKTtMUFRUUlJTUk5MS0pMVFpeY15WSCsTHys8TVlaWllXT0U\/QURGSDojExALBgEAAFNcV1NSUVdfX1xXTUNER0A4NTxGS1FSUE9TV1hZV1JOUFJPSjsjDQwMFyUzQU1PUFBQUVJUVFFRUVNXW15gX1xQNiAkKTlMWVpcW1xXUUxKSEtMPysaEwwHATyVUVxbWVhYXWFhXlhOREJCOy0nMj1FTlJRUVRZWVpYUk9QUlJSSTgpJiUtOEFITU1NTlFUVldXV1ZWVlhZW19fX1hGNjU1QVBaW11dXFhTUE1MTlBKPzEgDggBAABRXl5dXl5hY2JfWk9EQT4yIRklMT9MUVFSVltaW9MD8ARSVllVS0I\/PEFHS01MS0pNUVRWUwMANAgAPQSwX1RMRkBHU1tdXl1oBfAAUU9RVFJRRiwPCQI8lU1bbQbwMWNkYl9ZTUM6MyYYEBsmN0pRUVFUV1hYVlJOT1JVWFdSTUhEQD08Ojo4NT1GTlJVVlZWVlRSUFVcXmFfWlRQSU7bCvAKV1NPTUxNT1FUU1FGLBAKAgAAS1ldYWNjZCML8QpOQTQoGQ0GEBoxR1BPUFJUVVRTUlBRUlVX1AbwBz8zLCkmJCAsOkZMUlJRU1RRTEhRWV2cCPAGWlRUWFpZWFFJRkVFSk1QVFJPRywRuADxCkpZXmFiYmFiXlpSRjkrHhIIBBAbM0tTUlHVEfATTk1NTVJYXFtbV1FIPDUyLSMbKDZDTFJSUk5LSEdIUFdaXHMB8AVRUVRVVVVLQz46OkFJS0xHPTEfDEgYACQLANwH8AJXT0c9MCMUCwYEEiA4UFhWU7oSYExJSEZFTzYF8AlZVlJOSUI7LB4mNUFMVFVUTEE+Q0lOVVjmBPIGU0pJTU1QUUY8NC4sOENERTcjFA0GgAvyE11hX15aV1BGPTAkGAwFAgQVJT1TW1hWVFNPTEpJRkI9SlqTCfAFWlVMQzEdJzRATFZWVkk3Mz9JTVLDE0BZT0JCFhLgPjUtJCIsNzU2JRABAQFHFvAKSVheYV9cWFVKPDAhEw0GAgIGFic9U1taWJIR8ClOS0c8MkBTW11cWVdYW1dQRTIeJjZETlVWVkMsJztKTU9TVVZUVEk+Ojs5NzYwLSYgHR0eHRsTCJUW8EcAPJVIVl1gXVpVUUMyIBQDAwEAAAUXKj9UW1taWFdWVVJOSDgmN01YWlxZVVhaWFFFMRsmOUVPVFVUPiMeN0tLTE5RUVBMQjgyMC0oIiMkIBwWDwkFA7MAAQIA0DxLVl1bWlJMPSgWDQRdAIAEER01TVhbXrwG8BBXU043Iiw7Rk9WUU5NT0o\/MyISIDVDTlRSUTwlIzhLDxbwA0c\/NSwkIB0bFxUWFxYSEAoGBKEAAAIAwDyVLj9PWFdXTkg2HRcAogUEAQIJES1HVVtQDUBYUTcdGArxFVBKREJDOy0fFAcYLz9LVFFMOykmOktLS0lGPS4fFxANDAsHBdQXMgUDA7IXAAIA8QkgLTpCQkE8NCYTBgUEBAQDAQEFCR80RE9sDPAgW1NILhQVGSIxOjczMC8pHRIKAhMoOEdRSUAyIR8vPDs6NzMrHhEMBwUFBAICAwRBFzMCAQGZGfABPJURGR4kJCQgHBUMBgYFBHQA8CIDAw4aLD9QW2RkY1lKOSIKCQsQGB8eGxoZFQ8IBQIOHzBBTj8xIxYUHScjIR4aFA0HSwFAAQIAAVcAAgIAALUAwAAAAAYJCw0ODg0LCLYAEgRzAPAbBAkZLkJPXVxcUDwpFgQBAQQGCwsMCgkHBAICAAsWJTdEMyIWDAoRFhMOtRgBRwAFAgAAfwICRgDyATyVAwQHBgYIBgYEAwMCAwLjAeABBA4eLDpJR0M3JhYMARAAMAUGBaUBAEcC0QwWJzIiEwwGBQkMCQdvAAVYAA8CABOTBAwWJTMvKR8PygAHAgBiAQcXIBQGmwAPAgAKLzyVHwADlAIGDBQeHBkRCVECBgIAXgEHEhwQcwAPAgAYYQECBggIBzoPDAIATgQOFQxzAA4CAA+4AAUAAgABEwQPAgAAXwIKEAgDGAAADwIAMT8DBwpvAREPuAAKDwIABUUCBAYEwwIPAgA8UQEFBwcFDRwPAgALD7gAIV8BBQcICCkCKg8CAAdFAQIEA+0EDwIACA+4ACE\/AAICbwEPUAAAAAAAAAAAAA==",
+        "width" : 90,
+        "bytesPerRow" : 92,
+        "name" : "Untitled"
+      },
+      "name" : "Untitled",
+      "image_md5" : "9EA6290A15229DD3D483C1B4BC8A3F6C_90x90"
+    },
+    "name" : "Item",
+    "type" : "image"
+  },
+  "stylusSizeTiltCurve" : {
+    "points" : [
+      {
+        "name" : "p",
+        "properties" : {
+          "x" : 0,
+          "y" : 1
+        },
+        "version" : 1
+      },
+      {
+        "name" : "p",
+        "properties" : {
+          "x" : 0.18823529779911041,
+          "y" : 0.25098040699958801
+        },
+        "version" : 1
+      },
+      {
+        "name" : "p",
+        "properties" : {
+          "x" : 1,
+          "y" : 0
+        },
+        "version" : 1
+      }
+    ],
+    "properties" : {
+
+    },
+    "name" : "Item",
+    "version" : 1
+  },
+  "identifier" : "61F76FAE-2FD5-4E60-AA5F-831942F87B80-227-0000000E295A923D",
+  "version" : 3,
+  "properties" : {
+    "auxScatterX" : 0,
+    "scatterX" : 0,
+    "jitterStrokeLabB" : 0,
+    "patternOverrideStampBriCon" : 1,
+    "dynamicsSizeFade" : 0,
+    "blendTransparencyMode" : 4,
+    "blending" : 1,
+    "auxJitterAngle" : 0,
+    "auxBlending" : 4,
+    "dynamicsPreserveLuminosity" : 0,
+    "brightness" : 0,
+    "dynamicsBrightnessControl" : 0,
+    "dynamicsPatternOpacityControl" : 0,
+    "dynamicsScatterControl" : 0,
+    "auxMode" : 1,
+    "jitterSqueeze" : 0.070000000298023224,
+    "jitterStrokeAngle" : 0,
+    "jitterStrokeHuePreserveLuminosity" : 0,
+    "dynamicsOpacityFade" : 0,
+    "jitterFlipX" : 0,
+    "jitterWithColor" : 0,
+    "patternInvert" : 0,
+    "airbrush" : 0,
+    "dynamicsEnabled" : 1,
+    "maxFlow" : 1,
+    "auxJitterCount" : 1,
+    "flatHotspot" : 0.80000001192092896,
+    "spacing" : 0.47999998927116394,
+    "emboss" : 0,
+    "paintLoadAmount" : 0.25,
+    "paintAmount" : 0.25,
+    "dynamicsLabLControl" : 0,
+    "patternFiltering" : 3,
+    "auxSpacing" : 0.25,
+    "smudgeWithoutSpacing" : 0,
+    "auxStampEnabled" : 0,
+    "dynamicsAngleControl" : 0,
+    "dynamicsMinOpacity" : 0,
+    "patternBrightness" : 0,
+    "paintDuration" : 0.80000001192092896,
+    "patternEmboss" : 0,
+    "jitterStrokeLightness" : 0,
+    "noise" : 0,
+    "paintAutoload" : 0,
+    "flow" : 1,
+    "jitterStrokeLabL" : 0,
+    "wetBlurRadius" : 0,
+    "maxSize" : 20,
+    "preferredTool" : 2,
+    "patternContrast" : 0,
+    "dynamicsSaturationControl" : 0,
+    "jitterFlow" : 0,
+    "glazing" : 0,
+    "auxRotation" : 0,
+    "auxMovement" : 0,
+    "patternOpacity" : 1,
+    "smoothing" : 5,
+    "dynamicsLabBControl" : 0,
+    "dynamicsStampContrastControl" : 0,
+    "scatterY" : 0,
+    "jitterLabA" : 0,
+    "opacity" : 1,
+    "jitterLabL" : 0,
+    "patternOffsetRandomness" : 1,
+    "jitterPatternOpacity" : 0,
+    "sharpTaper" : 1,
+    "auxKeepSizeRatio" : 1,
+    "patternEnabled" : 0,
+    "mixRate" : 1,
+    "dynamicsMinScale" : 0.10000000149011612,
+    "sidebarOpacitySliderMode" : 1,
+    "patternEachStroke" : 0,
+    "blendEachStamp" : 0,
+    "jitterAngle" : 3.1415925025939941,
+    "dynamicsMinScatter" : 0,
+    "dynamicsSqueezeControl" : 0,
+    "jitterLightness" : 0,
+    "dynamicsStylusTiltGradation" : 0,
+    "auxSizeRatio" : 0,
+    "dynamicsMinFlow" : 0.10000000149011612,
+    "patterOverlayStampEmboss" : 0,
+    "patternScale" : 1,
+    "auxFlow" : 1,
+    "jitterStrokeSaturation" : 0,
+    "dynamicsFlowControl" : 0,
+    "auxScatterY" : 0,
+    "dynamicsLabAControl" : 0,
+    "dynamicsStylusTiltEffect" : 2,
+    "jitterEnabled" : 1,
+    "jitterHuePreserveLuminosity" : 0,
+    "jitterLabB" : 0,
+    "jitterStrokeHue" : 0,
+    "jitterHue" : 0,
+    "jitterSize" : 0,
+    "dynamicsSizeControl" : 2,
+    "patternAngle" : 0,
+    "jitterFlipY" : 0,
+    "dynamicsWetnessControl" : 0,
+    "brushAutoclean" : 1,
+    "dynamicsHueControl" : 0,
+    "jitterStrokeLabA" : 0,
+    "wet" : 0,
+    "jitterSaturation" : 0,
+    "dynamicsPaintAmountControl" : 0,
+    "dynamicsColorControl" : 0,
+    "dynamicsOpacityControl" : 1,
+    "patternBlending" : 4,
+    "contrast" : 0,
+    "dynamicsMinPatternOpacity" : 0.10000000149011612,
+    "dynamicsLeakControl" : 0,
+    "jitterCount" : 1,
+    "wetness" : 0.20000000298023224,
+    "jitterStrokeWithColor" : 0,
+    "dynamicsFlowFade" : 0,
+    "auxEmboss" : 0,
+    "jitterOpacity" : 0.019999999552965164
+  },
+  "name" : "True Charcoal Brushes - Master Classic HB"
+},
+{
+  "dynamicColor" : {
+    "name" : "Color",
+    "properties" : {
+      "b" : 1,
+      "space" : 0,
+      "c" : 1,
+      "a" : 1
+    },
+    "version" : 1
+  },
+  "stamp" : {
+    "version" : 1,
+    "properties" : {
+      "size" : 40,
+      "filtering" : 3,
+      "squeeze" : 1,
+      "angle" : 0
+    },
+    "image" : {
+      "version" : 1,
+      "properties" : {
+
+      },
+      "image" : {
+        "format" : 1,
+        "height" : 50,
+        "compress" : true,
+        "data" : "BCJNGGBAgkUCAADwBgcSCxEYGRQOBAAAABgHKjwuGhYeHQwA8DUBDB1PICIIQwAAAAEEGhI9BCEJGwAAAAImdI6omAYLKwAAAAs1bJ1dhE4UVAAAAB0zW4MpEQxDcAAAABU3XV4jWJBXTjAAgA5QYW8KkF0tSABwAyBLBhFyC2wAkAQPAz+CR3gRGiQA8BARHRKOjxc2DQAAADEbCFmDTBUeCwAAAC0VFHw\/bZ05MACABwYKBSEvGBkMAIApUDQKfG0gCQwAkDI1CARnZ0w7F2AA8AQEDkpSboFbTgAAAAwCQVY6I04enACQBAdOKh8\/GBYHGACBA0EfR0dbFRhgAPADBBAcDwxMAgAAACpDGAlFdQUEVADwNSo7RSddf1wqOAASAC81RTsUUlEgOChhAC88MhYVB0E4MQAAABwWNVVXB0M5LwAAADA7PEdFa0oaEgAAACw\/PjsIBCs2SADwEQIETUw7GwQ1AwAAAAMVCgYrazQlJgAAABoMEgQyIBUlJACABAgSFBEECwMMAHECKQYIDg4MhACABS4jBxEKBwQ8AIAELwwIBTskJwwA8AUVAhs3TTtBLAUAAAAECik1SRcUBMAA8AUeLxAXPRIZBhEAAAAbMjUxPS4GDzAA8BEXBQocAiklEhMAAAAkKyc5QSk\/PxYAAAAfHzs9QCglGyQAkA8bKyoQKiEMAYwBgAgEBQ8XBzYJLAGAJw0aGjwJLyMwAHAhJgQtMCQNMACQCAQCAyssIRwQMACABw0RGSQEBAiQALAQDQ8IBAcIBwAAQAAAAAA=",
+        "width" : 9,
+        "bytesPerRow" : 12,
+        "name" : "Untitled"
+      },
+      "name" : "Untitled",
+      "image_md5" : "B0EB0800D45C02979BD4F340D4DB87F9_9x50"
+    },
+    "name" : "Item",
+    "type" : "image"
+  },
+  "secondStamp" : {
+    "version" : 1,
+    "properties" : {
+      "size" : 11,
+      "filtering" : 3,
+      "squeeze" : 1,
+      "angle" : 0
+    },
+    "image" : {
+      "version" : 1,
+      "properties" : {
+
+      },
+      "image" : {
+        "format" : 1,
+        "height" : 66,
+        "compress" : true,
+        "data" : "BCJNGGBAgi0CAAAVAAEAVQYbQCMCDgAPAgAvb1TJ7uO2EUgALwMCAIMju\/z99fe2EA8ADwIALo9D6P3\/9P\/yUEkAKTS4uP8\/AJQEYuz8\/\/P\/9loRAA8CACEHUACPAE\/p\/P75\/tFHACEJAgBACTJ2cREAcC7e+fv11RsLAA8CACpQXuH39rRCAFCk5N+XHQkADwIAKm8Fk\/n\/\/+9DACoGAgCWBQUGAHb1\/v7kEwAPAgAqAJABXwKg5+MfRgAqBgIANmdnjg0ADwIA0ABAAQ\/nADYfDkoANgACAFADbM22PQkADwIANF9t6Pr3xfAAOF+T9P745ZwANAACAFBz6\/n33QkADwIANX+i3dFpsrL2TwA1DwIA\/\/8MP4mCQiACAg9wAyRvi+vy054uUgACDwIAIX8dtfn8+PXKOwAhDwIAAn9A5P3\/+f3yHAACDwIAIW9U8v\/\/+Pj9Azd\/Tu\/++\/HUPIsAAA+QASQ\/qObBTQAAD1AAJw8CALs\/Z6A50QAlD5ABAT9h7vQfCTUBAgA\/evb+BQY6QQPI4YxZAA8CACAP8AABDwIAyQ\/wAN0PAgD\/\/\/JfBhEYEhQIAzePF3CfwrmRRARSADWfZtLo7fTx3J00UQAzryCs5er2\/fz48Z9QADOvN8fq8f3+\/fr315kSM786yu35\/\/\/\/+ffhIKEAMq8Uuer1\/f759vLLkgE0n4HW6ePd4erhbJ8AMqAAAC2m4ODj5t6gDAAPAgAybzCcxNrDgUsAAlAAAAAAAAAAAAA=",
+        "width" : 77,
+        "bytesPerRow" : 80,
+        "name" : "Untitled"
+      },
+      "name" : "Untitled",
+      "image_md5" : "D9BF6F7838B474592445398635068CEB_77x66"
+    },
+    "name" : "Item",
+    "type" : "image"
+  },
+  "stylusSizeTiltCurve" : {
+    "points" : [
+      {
+        "name" : "p",
+        "properties" : {
+          "x" : 0,
+          "y" : 1
+        },
+        "version" : 1
+      },
+      {
+        "name" : "p",
+        "properties" : {
+          "x" : 0.18823529779911041,
+          "y" : 0.25098040699958801
+        },
+        "version" : 1
+      },
+      {
+        "name" : "p",
+        "properties" : {
+          "x" : 1,
+          "y" : 0
+        },
+        "version" : 1
+      }
+    ],
+    "properties" : {
+
+    },
+    "name" : "Item",
+    "version" : 1
+  },
+  "identifier" : "80F150E9-C866-4395-9D51-F6C2AEF8D824-227-0000000E474C2514",
+  "properties" : {
+    "auxScatterX" : 0,
+    "scatterX" : 0,
+    "jitterStrokeLabB" : 0,
+    "patternOverrideStampBriCon" : 1,
+    "dynamicsSizeFade" : 0,
+    "blendTransparencyMode" : 4,
+    "blending" : 1,
+    "auxJitterAngle" : 3.1415925025939941,
+    "auxBlending" : 13,
+    "dynamicsPreserveLuminosity" : 0,
+    "brightness" : 0,
+    "dynamicsBrightnessControl" : 0,
+    "dynamicsPatternOpacityControl" : 0,
+    "dynamicsScatterControl" : 0,
+    "auxMode" : 1,
+    "jitterSqueeze" : 0.99000000953674316,
+    "jitterStrokeAngle" : 0,
+    "jitterStrokeHuePreserveLuminosity" : 0,
+    "dynamicsOpacityFade" : 0,
+    "jitterFlipX" : 1,
+    "jitterWithColor" : 0,
+    "patternInvert" : 0,
+    "airbrush" : 0,
+    "dynamicsEnabled" : 1,
+    "maxFlow" : 1,
+    "auxJitterCount" : 1,
+    "flatHotspot" : 0.80000001192092896,
+    "spacing" : 0.31999999284744263,
+    "emboss" : 0,
+    "paintLoadAmount" : 0.25,
+    "paintAmount" : 0.25,
+    "dynamicsLabLControl" : 0,
+    "patternFiltering" : 3,
+    "auxSpacing" : 0.31999999284744263,
+    "smudgeWithoutSpacing" : 0,
+    "auxStampEnabled" : 1,
+    "dynamicsAngleControl" : 32,
+    "dynamicsMinOpacity" : 0,
+    "patternBrightness" : 0,
+    "paintDuration" : 0.80000001192092896,
+    "patternEmboss" : 0,
+    "jitterStrokeLightness" : 0,
+    "noise" : 0,
+    "paintAutoload" : 0,
+    "flow" : 1,
+    "jitterStrokeLabL" : 0,
+    "wetBlurRadius" : 0,
+    "maxSize" : 125,
+    "preferredTool" : 2,
+    "patternContrast" : 0,
+    "dynamicsSaturationControl" : 0,
+    "jitterFlow" : 0.029999999329447746,
+    "glazing" : 0,
+    "auxRotation" : 0,
+    "auxMovement" : 0,
+    "patternOpacity" : 1,
+    "smoothing" : 0,
+    "dynamicsLabBControl" : 0,
+    "dynamicsStampContrastControl" : 0,
+    "scatterY" : 0,
+    "jitterLabA" : 0,
+    "opacity" : 1,
+    "jitterLabL" : 0,
+    "patternOffsetRandomness" : 1,
+    "jitterPatternOpacity" : 0,
+    "sharpTaper" : 1,
+    "auxKeepSizeRatio" : 0,
+    "patternEnabled" : 0,
+    "mixRate" : 1,
+    "dynamicsMinScale" : 0.10000000149011612,
+    "sidebarOpacitySliderMode" : 1,
+    "patternEachStroke" : 0,
+    "blendEachStamp" : 0,
+    "jitterAngle" : 0.31415927410125732,
+    "dynamicsMinScatter" : 0,
+    "dynamicsSqueezeControl" : 0,
+    "jitterLightness" : 0,
+    "dynamicsStylusTiltGradation" : 0,
+    "auxSizeRatio" : 0.2800000011920929,
+    "dynamicsMinFlow" : 0.10000000149011612,
+    "patterOverlayStampEmboss" : 0,
+    "patternScale" : 1,
+    "auxFlow" : 1,
+    "jitterStrokeSaturation" : 0,
+    "dynamicsFlowControl" : 0,
+    "auxScatterY" : 0.38999998569488525,
+    "dynamicsLabAControl" : 0,
+    "dynamicsStylusTiltEffect" : 2,
+    "jitterEnabled" : 1,
+    "jitterHuePreserveLuminosity" : 0,
+    "jitterLabB" : 0,
+    "jitterStrokeHue" : 0,
+    "jitterHue" : 0,
+    "jitterSize" : 0.039999999105930328,
+    "dynamicsSizeControl" : 2,
+    "patternAngle" : 0,
+    "jitterFlipY" : 0,
+    "dynamicsWetnessControl" : 0,
+    "brushAutoclean" : 1,
+    "dynamicsHueControl" : 0,
+    "jitterStrokeLabA" : 0,
+    "wet" : 0,
+    "jitterSaturation" : 0,
+    "dynamicsPaintAmountControl" : 0,
+    "dynamicsColorControl" : 0,
+    "dynamicsOpacityControl" : 1,
+    "patternBlending" : 4,
+    "contrast" : 0,
+    "dynamicsMinPatternOpacity" : 0.10000000149011612,
+    "dynamicsLeakControl" : 0,
+    "jitterCount" : 1,
+    "wetness" : 0.20000000298023224,
+    "jitterStrokeWithColor" : 0,
+    "dynamicsFlowFade" : 0,
+    "auxEmboss" : 0,
+    "jitterOpacity" : 0.41999998688697815
+  },
+  "version" : 3,
+  "name" : "True Charcoal Brushes - Academic Charcoal #6"
+}
+]
