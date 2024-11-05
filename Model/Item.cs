@@ -11,7 +11,9 @@ namespace InventoryManagement.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImagePath { get; set; }
-        public List<Recipe> Recipes { get; set; } = new List<Recipe>(); 
+
+        // Dictionary where each key is an Item needed to craft this item, and value is the quantity needed
+        public Dictionary<Item, int> CraftingRequirements { get; set; } = new Dictionary<Item, int>();
 
         public Item(string name, string description, string imagePath)
         {
@@ -20,9 +22,10 @@ namespace InventoryManagement.Model
             ImagePath = imagePath;
         }
 
-        public void AddRecipe(Recipe recipe)
+        // Method to add an item and quantity needed for crafting
+        public void AddCraftingRequirement(Item item, int quantity)
         {
-            Recipes.Add(recipe);
+            CraftingRequirements[item] = quantity;
         }
     }
 

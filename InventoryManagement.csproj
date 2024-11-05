@@ -129,8 +129,6 @@
     <Compile Include="Model\Inventory.cs" />
     <Compile Include="Model\InventoryItem.cs" />
     <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\Recipe.cs" />
-    <Compile Include="Model\RecipeIngredient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

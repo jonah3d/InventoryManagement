@@ -1,6 +1,7 @@
 ﻿using InventoryManagement.Model;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
@@ -26,6 +27,7 @@ namespace InventoryManagement
         private Inventory _inventory = new Inventory();
         private HashSet<RelativePanel> selectedSlots = new HashSet<RelativePanel>();
 
+        public ObservableCollection<KeyValuePair<Item, int>> CraftingRequirements { get; private set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -34,6 +36,7 @@ namespace InventoryManagement
             InitializeComponent();
             ResizeView();
             _gameItems = new GameItems();
+            CraftingRequirements = new ObservableCollection<KeyValuePair<Item, int>>();
         }
 
         private void ResizeView()
@@ -84,26 +87,21 @@ namespace InventoryManagement
                 return;
             }
 
-          
             if (cmbx_recipeItemsQt.SelectedItem is ComboBoxItem selectedItem)
             {
-              
                 if (int.TryParse(selectedItem.Content.ToString(), out int quantity) && quantity > 0)
                 {
                     Item recipeItem = _gameItems.Items.FirstOrDefault(item => item.Name.Equals(recipeName, StringComparison.OrdinalIgnoreCase));
 
                     if (recipeItem != null)
                     {
-                       
-                        Recipe recipe = new Recipe(recipeItem.Name);
-                        recipe.AddIngredient(recipeItem, quantity);
+                        _selectedItem.AddCraftingRequirement(recipeItem, quantity);
 
-                     
-                        _selectedItem.AddRecipe(recipe);
-
-                      
-                        lv_recipeslist.ItemsSource = null;
-                        lv_recipeslist.ItemsSource = _selectedItem.Recipes;
+                        // Update the recipes list view after adding the crafting requirement
+                        lv_recipeslist.ItemsSource = null; // Reset the source
+                        lv_recipeslist.ItemsSource = _selectedItem.CraftingRequirements
+                            .Select(req => new { ItemName = req.Key.Name, Quantity = req.Value }) // Anonymous type to bind
+                            .ToList();
 
                         ShowMessageDialog($"Recipe '{recipeItem.Name}' with quantity '{quantity}' added to '{_selectedItem.Name}'.");
                     }
@@ -122,13 +120,9 @@ namespace InventoryManagement
                 ShowMessageDialog("Please select a quantity.");
             }
 
-            txtbx_recipeName.Text = string.Empty; 
-            cmbx_recipeItemsQt.SelectedIndex = -1; 
+            txtbx_recipeName.Text = string.Empty;
+            cmbx_recipeItemsQt.SelectedIndex = -1;
         }
-
-
-
-
 
         private async void ShowMessageDialog(string message)
         {
@@ -143,6 +137,11 @@ namespace InventoryManagement
             {
                 LoadSelectedItemDetails();
                 await LoadAndDisplayImageAsync();
+
+                // Refresh the recipes list view when an item is selected
+                lv_recipeslist.ItemsSource = _selectedItem.CraftingRequirements
+                    .Select(req => new { ItemName = req.Key.Name, Quantity = req.Value }) // Anonymous type to bind
+                    .ToList();
             }
         }
 
@@ -216,10 +215,8 @@ namespace InventoryManagement
 
             try
             {
-
                 StorageFolder assetsFolder = await Windows.ApplicationModel.Package.Current.InstalledLocation.GetFolderAsync("Assets");
                 StorageFile imageFile = await assetsFolder.GetFileAsync(imageName);
-
 
                 using (IRandomAccessStream stream = await imageFile.OpenAsync(FileAccessMode.Read))
                 {
@@ -234,7 +231,6 @@ namespace InventoryManagement
                 SelectedImageSource = null;
             }
         }
-
 
         private void OnPropertyChanged(string propertyName)
         {
@@ -271,249 +267,75 @@ namespace InventoryManagement
 
         private void btn_Combine_Click(object sender, RoutedEventArgs e)
         {
-            // Ensure exactly two items are selected
             if (selectedSlots.Count != 2)
             {
                 ShowMessageDialog("Please select exactly two items to combine.");
                 return;
             }
 
-            // Extract selected items
-            List<Item> selectedItems = new List<Item>();
-            foreach (var slot in selectedSlots)
+            List<Item> selectedItems = selectedSlots
+                .Select(slot => ((Image)slot.Children.OfType<Image>().FirstOrDefault())?.DataContext as InventoryItem)
+                .Where(inventoryItem => inventoryItem != null)
+                .Select(inventoryItem => inventoryItem.Item)
+                .ToList();
+
+            // Iterate through each game item and check if the selected items can craft it
+            foreach (var gameItem in _gameItems.Items)
             {
-                var imageControl = slot.Children.OfType<Image>().FirstOrDefault();
-                if (imageControl?.DataContext is InventoryItem inventoryItem)
+                if (CanCraftItem(gameItem, selectedItems))
                 {
-                    selectedItems.Add(inventoryItem.Item);
-                }
-            }
-
-            // Check for matching recipes
-            foreach (var item in _gameItems.Items)
-            {
-                if (item.Recipes == null || !item.Recipes.Any())
-                    continue; // Skip items with no recipes
-
-                // Verify if the selected items match the recipe requirements
-                bool recipeMatch = true;
-                Dictionary<string, int> requiredIngredients = new Dictionary<string, int>();
-
-                // Aggregate required ingredients from the recipes
-                foreach (var recipe in item.Recipes)
-                {
-                    foreach (var ingredient in recipe.Ingredients)
-                    {
-                        if (requiredIngredients.ContainsKey(ingredient.Ingredient.Name))
-                        {
-                            requiredIngredients[ingredient.Ingredient.Name] += ingredient.Quantity;
-                        }
-                        else
-                        {
-                            requiredIngredients[ingredient.Ingredient.Name] = ingredient.Quantity;
-                        }
-                    }
-                }
-
-                // Check if we have enough of the selected ingredients in the inventory
-                foreach (var requiredIngredient in requiredIngredients)
-                {
-                    int selectedCount = selectedItems.Count(i => i.Name == requiredIngredient.Key);
-                    if (selectedCount < requiredIngredient.Value)
-                    {
-                        recipeMatch = false;
-                        break; // Not enough ingredients
-                    }
-                }
-
-                // If the recipe matches, craft the item
-                if (recipeMatch)
-                {
-                    CraftItem(item, requiredIngredients, selectedItems);
+                    // If we can craft the item, perform the crafting
+                    CraftItem(gameItem, selectedItems);
                     UpdateInventoryGrid();
-                    selectedSlots.Clear(); // Clear selection after crafting
-                    ShowMessageDialog($"Successfully combined items into {item.Name}.");
-                    return; // Exit after successful crafting
+                    selectedSlots.Clear();
+                    ShowMessageDialog($"Successfully combined items into {gameItem.Name}.");
+                    return; // Exit after successfully crafting
                 }
             }
 
-            // No valid combination found
             ShowMessageDialog("The selected items cannot be combined into a valid recipe.");
         }
 
-
-
-        private void CraftItem(Item craftedItem, Dictionary<string, int> recipeIngredients, List<Item> selectedItems)
+        private bool CanCraftItem(Item item, List<Item> selectedItems)
         {
-            // Deduct inventory quantities based on recipe ingredients
-            foreach (var ingredient in recipeIngredients)
+            // Check if the selected items fulfill the crafting requirements
+            foreach (var requirement in item.CraftingRequirements)
             {
-                int quantityNeeded = ingredient.Value;
+                Item requiredItem = requirement.Key;
+                int requiredQuantity = requirement.Value;
 
-                // Loop through the selected items to deduct the required amount
-                foreach (var selectedItem in selectedItems.ToList())
+                // Count how many of the required item are selected
+                int availableQuantity = selectedItems.Count(selected => selected.Name == requiredItem.Name);
+                if (availableQuantity < requiredQuantity)
                 {
-                    if (selectedItem.Name == ingredient.Key && quantityNeeded > 0)
+                    return false; // Not enough of the required item
+                }
+            }
+
+            return true; // All requirements are met
+        }
+
+        private void CraftItem(Item craftedItem, List<Item> selectedItems)
+        {
+            // Remove the required items from the inventory
+            foreach (var requirement in craftedItem.CraftingRequirements)
+            {
+                Item requiredItem = requirement.Key;
+                int quantityNeeded = requirement.Value;
+
+                // Use a different variable name for the inner loop
+                for (int j = 0; j < quantityNeeded; j++)
+                {
+                    var inventoryItem = _inventory.Items.FirstOrDefault(i => i.Item.Name == requiredItem.Name);
+                    if (inventoryItem != null && inventoryItem.Quantity > 0)
                     {
-                        var inventoryItem = _inventory.Items.FirstOrDefault(i => i.Item.Name == selectedItem.Name);
-                        if (inventoryItem != null)
-                        {
-                            int quantityToRemove = Math.Min(quantityNeeded, inventoryItem.Quantity);
-                            _inventory.RemoveItem(inventoryItem.Item, quantityToRemove);
-                            quantityNeeded -= quantityToRemove;
-
-                            if (quantityToRemove > 0)
-                            {
-                                selectedItems.Remove(selectedItem); // Remove if the item was used up
-                            }
-
-                            if (quantityNeeded <= 0)
-                            {
-                                break; // Enough ingredients have been deducted
-                            }
-                        }
+                        _inventory.RemoveItem(inventoryItem.Item, 1); // Remove one item
                     }
                 }
             }
 
-            // Add the crafted item to inventory
+            // Add the crafted item to the inventory
             _inventory.AddItem(craftedItem, 1);
-        }
-
-
-        private object GetSlotIndex(RelativePanel slot)
-        {
-            var name = slot.Name;
-            if (string.IsNullOrEmpty(name))
-            {
-                throw new ArgumentException("Slot name cannot be null or empty.");
-            }
-
-
-            if (!name.StartsWith("slot"))
-            {
-                throw new ArgumentException("Invalid slot name format.");
-            }
-
-            var indexString = name.Substring(4);
-            if (!int.TryParse(indexString, out var index))
-            {
-                throw new ArgumentException("Invalid slot index in name.");
-            }
-
-            return index - 1;
-        }
-
-
-        private void CraftItem(Item recipe, List<Item> selectedItems)
-        {
-
-            var craftedItem = new Item(recipe.Name, recipe.Description, recipe.ImagePath);
-
-
-            foreach (var uniqueIngredient in recipe.Recipes.Distinct())
-            {
-                int requiredQuantity = recipe.Recipes.Count(item => item.Name == uniqueIngredient.Name);
-                int quantityToRemove = requiredQuantity;
-
-                foreach (var selectedItem in selectedItems.ToList())
-                {
-                    if (selectedItem.Name == uniqueIngredient.Name && quantityToRemove > 0)
-                    {
-
-                        var inventoryItem = _inventory.Items.FirstOrDefault(i => i.Item.Name == selectedItem.Name);
-                        if (inventoryItem != null)
-                        {
-
-                            int quantityRemoved = Math.Min(quantityToRemove, inventoryItem.Quantity);
-                            _inventory.RemoveItem(inventoryItem.Item, quantityRemoved);
-                            quantityToRemove -= quantityRemoved;
-
-
-                            if (quantityToRemove <= 0)
-                            {
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-
-
-            _inventory.AddItem(craftedItem, 1);
-
-            foreach (var slot in InventoryGrid.Children.OfType<RelativePanel>())
-            {
-                var imageControl = (Image)slot.Children.OfType<Image>().FirstOrDefault();
-                if (imageControl == null || imageControl.DataContext == null)
-                {
-
-                    imageControl = new Image
-                    {
-                        Source = new BitmapImage(new Uri($"ms-appx:///Assets/{craftedItem.ImagePath}")),
-                        DataContext = new InventoryItem { Item = craftedItem }
-                    };
-                    slot.Children.Add(imageControl);
-
-                    var quantityText = (TextBlock)slot.Children.OfType<TextBlock>().FirstOrDefault();
-                    if (quantityText != null)
-                    {
-                        quantityText.Text = "1";
-                    }
-                    break;
-                }
-            }
-        }
-
-        private bool CanCraftItem(Item recipe, List<Item> selectedItems)
-        {
-            foreach (var uniqueIngredient in recipe.Recipes.Distinct())
-            {
-
-                int requiredQuantity = recipe.Recipes.Count(item => item.Name == uniqueIngredient.Name);
-
-
-                int selectedQuantity = selectedItems.Count(item => item.Name == uniqueIngredient.Name);
-
-                if (selectedQuantity < requiredQuantity)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        private bool IsRecipeMatch(List<Item> recipe, List<InventoryItem> selectedInventoryItems)
-        {
-            foreach (var recipeItem in recipe.Distinct())
-            {
-                int requiredQuantity = recipe.Count(item => item.Name == recipeItem.Name);
-                int selectedQuantity = selectedInventoryItems.Count(invItem => invItem.Item.Name == recipeItem.Name);
-
-                if (selectedQuantity < requiredQuantity)
-                {
-                    return false; 
-                }
-            }
-            return true; 
-        }
-
-       
-        private void DeductInventoryQuantities(List<Item> recipe, List<InventoryItem> selectedInventoryItems)
-        {
-            foreach (var recipeItem in recipe.Distinct())
-            {
-                int requiredQuantity = recipe.Count(item => item.Name == recipeItem.Name);
-
-                foreach (var selectedInventoryItem in selectedInventoryItems.Where(invItem => invItem.Item.Name == recipeItem.Name).ToList())
-                {
-                    int quantityToRemove = Math.Min(requiredQuantity, selectedInventoryItem.Quantity);
-                    _inventory.RemoveItem(selectedInventoryItem.Item, quantityToRemove);
-                    requiredQuantity -= quantityToRemove;
-
-                    if (requiredQuantity <= 0) break; 
-                }
-            }
         }
 
 
@@ -536,6 +358,5 @@ namespace InventoryManagement
                 slot.BorderThickness = new Thickness(2);
             }
         }
-
     }
 }

@@ -6,6 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    xmlns:controls="using:Windows.UI.Xaml.Controls"
+
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
   
@@ -228,13 +230,25 @@
                 />
 
             <ListView
-                Grid.Column="4"
-                Grid.Row="1"
-                Grid.ColumnSpan="2"
-                x:Name="lv_recipeslist" DisplayMemberPath="Name"
-                 CornerRadius="10"
-                BorderBrush="#FFC99E60" Background="{x:Null}" Foreground="#FF604304" BorderThickness="2,2,2,2"
-                />
+    Grid.Column="4"
+    Grid.Row="1"
+    Grid.ColumnSpan="2"
+    x:Name="lv_recipeslist"
+    CornerRadius="10"
+    BorderBrush="#FFC99E60"
+    Background="{x:Null}"
+    Foreground="#FF604304"
+    BorderThickness="2,2,2,2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding ItemName}" Width="200"/>
+                            <TextBlock Text="{Binding Quantity}" Width="100"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
 
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center">
 
